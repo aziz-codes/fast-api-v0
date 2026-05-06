@@ -10,4 +10,5 @@ def home():
 
 @app.get("/users")
 def users():
-    return {"message":"Users route"}
+    users = [{"name":f"user-{user}","age":user*4} for user in range(1,6)]
+    return {"message":"Users route","data":users}
