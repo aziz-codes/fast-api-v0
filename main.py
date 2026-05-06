@@ -1,14 +1,9 @@
 from fastapi import FastAPI
+from mock.users import users as user_data
 
+#fast api ref as app.
 app = FastAPI()
-
-
-@app.get("/")
-def home():
-    return {"message":"Welcome to FAST API."}
-
-
+#first get route.
 @app.get("/users")
 def users():
-    users = [{"name":f"user-{user}","age":user*4} for user in range(1,6)]
-    return {"message":"Users route","data":users}
+    return {"message":"Users route","data":user_data}
